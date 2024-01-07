@@ -156,3 +156,4 @@ mmaction/.mim
 *.pth
 *.pyth
 *.jpg
+./work_dirs/*

@@ -5,8 +5,9 @@ from mmengine.logging import MMLogger
 from mmengine.model.weight_init import constant_init, kaiming_init, normal_init
 from mmengine.runner import load_checkpoint
 from mmengine.utils.dl_utils.parrots_wrapper import _BatchNorm
-
+import torch
 from mmaction.registry import MODELS
+import pdb
 
 
 @MODELS.register_module()
@@ -32,20 +33,22 @@ class C3D(nn.Module):
         init_std (float): Std value for Initiation of fc layers. Default: 0.01.
     """
 
-    def __init__(self,
-                 pretrained=None,
-                 style='pytorch',
-                 conv_cfg=None,
-                 norm_cfg=None,
-                 act_cfg=None,
-                 out_dim=8192,
-                 dropout_ratio=0.5,
-                 init_std=0.005):
+    def __init__(
+        self,
+        pretrained=None,
+        style="pytorch",
+        conv_cfg=None,
+        norm_cfg=None,
+        act_cfg=None,
+        out_dim=8192,
+        dropout_ratio=0.5,
+        init_std=0.005,
+    ):
         super().__init__()
         if conv_cfg is None:
-            conv_cfg = dict(type='Conv3d')
+            conv_cfg = dict(type="Conv3d")
         if act_cfg is None:
-            act_cfg = dict(type='ReLU')
+            act_cfg = dict(type="ReLU")
         self.pretrained = pretrained
         self.style = style
         self.conv_cfg = conv_cfg
@@ -59,7 +62,8 @@ class C3D(nn.Module):
             padding=(1, 1, 1),
             conv_cfg=self.conv_cfg,
             norm_cfg=self.norm_cfg,
-            act_cfg=self.act_cfg)
+            act_cfg=self.act_cfg,
+        )
 
         self.conv1a = ConvModule(3, 64, **c3d_conv_param)
         self.pool1 = nn.MaxPool3d(kernel_size=(1, 2, 2), stride=(1, 2, 2))
@@ -78,7 +82,8 @@ class C3D(nn.Module):
         self.conv5a = ConvModule(512, 512, **c3d_conv_param)
         self.conv5b = ConvModule(512, 512, **c3d_conv_param)
         self.pool5 = nn.MaxPool3d(
-            kernel_size=(2, 2, 2), stride=(2, 2, 2), padding=(0, 1, 1))
+            kernel_size=(2, 2, 2), stride=(2, 2, 2), padding=(0, 1, 1)
+        )
 
         self.fc6 = nn.Linear(out_dim, 4096)
         self.fc7 = nn.Linear(4096, 4096)
@@ -91,7 +96,7 @@ class C3D(nn.Module):
         scratch."""
         if isinstance(self.pretrained, str):
             logger = MMLogger.get_current_instance()
-            logger.info(f'load model from: {self.pretrained}')
+            logger.info(f"load model from: {self.pretrained}")
 
             load_checkpoint(self, self.pretrained, strict=False, logger=logger)
 
@@ -105,7 +110,7 @@ class C3D(nn.Module):
                     constant_init(m, 1)
 
         else:
-            raise TypeError('pretrained must be a str or None')
+            raise TypeError("pretrained must be a str or None")
 
     def forward(self, x):
         """Defines the computation performed at every call.
@@ -142,3 +147,10 @@ class C3D(nn.Module):
         x = self.relu(self.fc7(x))
 
         return x
+
+
+if __name__ == "__main__":
+    net = C3D()
+    dum = torch.randn(1, 3, 16, 256, 256)
+    out = net(dum)
+    print(out)
