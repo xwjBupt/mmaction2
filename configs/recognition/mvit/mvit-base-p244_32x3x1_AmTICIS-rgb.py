@@ -20,6 +20,7 @@ model = dict(
         ),
         format_shape="NCTHW",
     ),
+    cls_head=dict(num_classes=4),
 )
 
 # dataset settings
@@ -76,7 +77,7 @@ test_pipeline = [
 
 repeat_sample = 2
 train_dataloader = dict(
-    batch_size=8,
+    batch_size=4,
     num_workers=8,
     persistent_workers=True,
     sampler=dict(type="DefaultSampler", shuffle=True),
@@ -117,7 +118,7 @@ test_dataloader = dict(
     ),
 )
 
-val_evaluator = dict(type="AccMetric")
+val_evaluator = dict(type="AccMetric", metric_list=("mean_class_accuracy"))
 test_evaluator = val_evaluator
 
 train_cfg = dict(
