@@ -11,7 +11,7 @@ model = dict(
     backbone=dict(
         slow_pathway=dict(depth=101),
         fast_pathway=dict(depth=101),
-        pretrained=None,
+        pretrained="/ai/mnt/code/mmaction2/configs/recognition/slowfast/slowfast_r101_8xb8-8x8x1-256e_kinetics400-rgb_20220818-9c0e09bd.pth",
     ),
     cls_head=dict(
         num_classes=4,
@@ -23,14 +23,13 @@ model = dict(
 )
 
 train_dataloader = dict(
-    batch_size=2,
+    batch_size=4,
     dataset=dict(ann_file=ann_file_train, data_prefix=dict(video=data_root)),
 )
 val_dataloader = dict(
-    batch_size=4,
+    batch_size=8,
     dataset=dict(ann_file=ann_file_val, data_prefix=dict(video=data_root_val)),
 )
 test_dataloader = dict(
     dataset=dict(ann_file=ann_file_val, data_prefix=dict(video=data_root_val))
 )
-load_from = "/ai/mnt/code/mmaction2/configs/recognition/slowfast/slowfast_r101_8xb8-8x8x1-256e_kinetics400-rgb_20220818-9c0e09bd.pth"
