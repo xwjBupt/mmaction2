@@ -98,7 +98,13 @@ class C3D(nn.Module):
             logger = MMLogger.get_current_instance()
             logger.info(f"load model from: {self.pretrained}")
 
-            load_checkpoint(self, self.pretrained, strict=False, logger=logger)
+            load_checkpoint(
+                self,
+                self.pretrained,
+                strict=False,
+                logger=logger,
+                revise_keys=[(r"^module\.", ""), (r"^backbone\.", "")],
+            )
 
         elif self.pretrained is None:
             for m in self.modules():

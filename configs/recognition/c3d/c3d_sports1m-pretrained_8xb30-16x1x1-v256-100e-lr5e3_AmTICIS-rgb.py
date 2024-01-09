@@ -55,7 +55,7 @@ test_pipeline = [
 ]
 
 train_dataloader = dict(
-    batch_size=32,
+    batch_size=8,
     num_workers=8,
     persistent_workers=True,
     sampler=dict(type="DefaultSampler", shuffle=True),
@@ -67,7 +67,7 @@ train_dataloader = dict(
     ),
 )
 val_dataloader = dict(
-    batch_size=32,
+    batch_size=8,
     num_workers=8,
     persistent_workers=True,
     sampler=dict(type="DefaultSampler", shuffle=False),
@@ -93,7 +93,7 @@ test_dataloader = dict(
     ),
 )
 
-val_evaluator = dict(type="AccMetric", metric_list=("mean_class_accuracy"))
+val_evaluator = dict(type="AccMetric")
 test_evaluator = val_evaluator
 
 train_cfg = dict(
