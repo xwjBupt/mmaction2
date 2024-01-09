@@ -5,7 +5,7 @@ model = dict(
         arch="base",
         temporal_size=32,
         drop_path_rate=0.3,
-        pretrained="/ai/mnt/code/mmaction2/configs/recognition/mvit/mvit-base-p244_32x3x1_kinetics400-rgb_20221021-f392cd2d.pth",
+        pretrained="/ai/mnt/code/mmaction2/configs/recognition/mvit/mvit-base-p244_32x3x1_kinetics400-rgb_20221021-f392cd2d#revised.pth",
     ),
     data_preprocessor=dict(
         type="ActionDataPreprocessor",
@@ -118,11 +118,11 @@ test_dataloader = dict(
     ),
 )
 
-val_evaluator = dict(type="AccMetric", metric_list=("mean_class_accuracy"))
+val_evaluator = dict(type="AccMetric")
 test_evaluator = val_evaluator
 
 train_cfg = dict(
-    type="EpochBasedTrainLoop", max_epochs=200, val_begin=1, val_interval=1
+    type="EpochBasedTrainLoop", max_epochs=200, val_begin=1, val_interval=4
 )
 val_cfg = dict(type="ValLoop")
 test_cfg = dict(type="TestLoop")
