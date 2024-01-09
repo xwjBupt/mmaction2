@@ -23,7 +23,7 @@ model = dict(
 )
 
 train_dataloader = dict(
-    batch_size=4,
+    batch_size=8,
     dataset=dict(ann_file=ann_file_train, data_prefix=dict(video=data_root)),
 )
 val_dataloader = dict(
