@@ -13,7 +13,7 @@ ann_file_test = f"/ai/mnt/code/mmaction2/tools/data/AmTICIS/val.txt"
 
 model = dict(
     backbone=dict(
-        pretrained="/ai/mnt/code/mmaction2/configs/recognition/c3d/c3d_sports1m-pretrained_8xb30-16x1x1-45e_ucf101-rgb_20220811-31723200.pth"
+        pretrained=None,
     ),
     cls_head=dict(num_classes=4),
     data_preprocessor=dict(
@@ -98,7 +98,7 @@ val_evaluator = dict(type="AccMetric")
 test_evaluator = val_evaluator
 
 train_cfg = dict(
-    type="EpochBasedTrainLoop", max_epochs=200, val_begin=1, val_interval=10
+    type="EpochBasedTrainLoop", max_epochs=200, val_begin=1, val_interval=4
 )
 val_cfg = dict(type="ValLoop")
 test_cfg = dict(type="TestLoop")
@@ -127,3 +127,4 @@ default_hooks = dict(checkpoint=dict(interval=5, save_best="auto", max_keep_ckpt
 #       or not by default.
 #   - `base_batch_size` = (8 GPUs) x (30 samples per GPU).
 auto_scale_lr = dict(enable=False, base_batch_size=240)
+load_from = "/ai/mnt/code/mmaction2/configs/recognition/c3d/c3d_sports1m-pretrained_8xb30-16x1x1-45e_ucf101-rgb_20220811-31723200.pth"

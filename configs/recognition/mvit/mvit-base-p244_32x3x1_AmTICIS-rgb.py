@@ -5,7 +5,7 @@ model = dict(
         arch="base",
         temporal_size=32,
         drop_path_rate=0.3,
-        pretrained="/ai/mnt/code/mmaction2/configs/recognition/mvit/mvit-base-p244_32x3x1_kinetics400-rgb_20221021-f392cd2d#revised.pth",
+        pretrained=None,
     ),
     data_preprocessor=dict(
         type="ActionDataPreprocessor",
@@ -164,3 +164,4 @@ default_hooks = dict(
 #       or not by default.
 #   - `base_batch_size` = (8 GPUs) x (8 samples per GPU).
 auto_scale_lr = dict(enable=False, base_batch_size=512 // repeat_sample)
+load_from = "/ai/mnt/code/mmaction2/configs/recognition/mvit/mvit-base-p244_32x3x1_kinetics400-rgb_20221021-f392cd2d.pth"
