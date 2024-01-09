@@ -1,6 +1,7 @@
 from collections import OrderedDict, namedtuple
 import torch
 import re
+from tqdm import tqdm
 
 
 def load_checkpoint(filename, revise_keys=[(r"^module\.", ""), (r"^backbone\.", "")]):
@@ -26,7 +27,7 @@ def load_checkpoint(filename, revise_keys=[(r"^module\.", ""), (r"^backbone\.", 
 
     # strip prefix of state_dict
     metadata = getattr(state_dict, "_metadata", OrderedDict())
-    for p, r in revise_keys:
+    for p, r in tqdm(revise_keys):
         state_dict = OrderedDict({re.sub(p, r, k): v for k, v in state_dict.items()})
     # Keep metadata in state_dict
     state_dict._metadata = metadata
@@ -39,6 +40,6 @@ def load_checkpoint(filename, revise_keys=[(r"^module\.", ""), (r"^backbone\.", 
 
 if __name__ == "__main__":
     load_checkpoint(
-        "/ai/mnt/code/mmaction2/configs/recognition/mvit/mvit-base-p244_32x3x1_kinetics400-rgb_20221021-f392cd2d.pth"
+        "/ai/mnt/code/mmaction2/configs/recognition/swin/swin-base-p244-w877_in1k-pre_8xb8-amp-32x2x1-30e_kinetics400-rgb_20220930-182ec6cc.pth"
     )
     print("revised")
