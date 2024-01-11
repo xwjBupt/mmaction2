@@ -4,16 +4,26 @@ _base_ = [
     "../../_base_/default_runtime.py",
 ]
 
+preprocess_cfg = dict(mean=[160, 160, 160], std=[44, 44, 44], format_shape="NCHW")
+
 # model settings
-model = dict(cls_head=dict(is_shift=True))
+model = dict(
+    data_preprocessor=dict(
+        mean=[160, 160, 160],
+        std=[44, 44, 44],
+    ),
+    backbone=dict(pretrained=None),
+    cls_head=dict(num_classes=4, is_shift=True),
+)
 
 # dataset settings
 dataset_type = "VideoDataset"
-data_root = "data/kinetics400/videos_train"
-data_root_val = "data/kinetics400/videos_val"
-ann_file_train = "data/kinetics400/kinetics400_train_list_videos.txt"
-ann_file_val = "data/kinetics400/kinetics400_val_list_videos.txt"
-ann_file_test = "data/kinetics400/kinetics400_val_list_videos.txt"
+data_root_train = "/ai/mnt/data/erase_renamed_pair_relabel_RS/train"
+data_root_val = "/ai/mnt/data/erase_renamed_pair_relabel_RS/val"
+ann_file_train = "/ai/mnt/code/mmaction2/tools/data/AmTICIS/train.txt"
+ann_file_val = "/ai/mnt/code/mmaction2/tools/data/AmTICIS/val.txt"
+ann_file_test = "/ai/mnt/code/mmaction2/tools/data/AmTICIS/val.txt"
+
 train_pipeline = [
     dict(type="DecordInit"),
     dict(type="SampleFrames", clip_len=1, frame_interval=1, num_clips=8),
@@ -55,20 +65,20 @@ test_pipeline = [
 ]
 
 train_dataloader = dict(
-    batch_size=6,
-    num_workers=2,
+    batch_size=8,
+    num_workers=4,
     persistent_workers=True,
     sampler=dict(type="DefaultSampler", shuffle=True),
     dataset=dict(
         type=dataset_type,
         ann_file=ann_file_train,
-        data_prefix=dict(video=data_root),
+        data_prefix=dict(video=data_root_train),
         pipeline=train_pipeline,
     ),
 )
 val_dataloader = dict(
-    batch_size=6,
-    num_workers=2,
+    batch_size=8,
+    num_workers=4,
     persistent_workers=True,
     sampler=dict(type="DefaultSampler", shuffle=False),
     dataset=dict(
@@ -97,9 +107,9 @@ val_evaluator = dict(type="AccMetric")
 test_evaluator = val_evaluator
 
 train_cfg = dict(val_interval=5)
-
+default_hooks = dict(checkpoint=dict(save_best="auto", max_keep_ckpts=3))
 # optimizer
 optim_wrapper = dict(
     constructor="TSMOptimWrapperConstructor", paramwise_cfg=dict(fc_lr5=True)
 )
-load_from = "https://download.openmmlab.com/mmaction/recognition/tsm/tsm_r50_1x1x8_50e_kinetics400_rgb/tsm_r50_1x1x8_50e_kinetics400_rgb_20200607-af7fb746.pth"  # noqa: E501
+load_from = "/ai/mnt/code/mmaction2/configs/recognition/tin/tin_kinetics400-pretrained-tsm-r50_1x1x8-50e_kinetics400-rgb_20220913-7f10d0c0.pth"  # noqa: E501
