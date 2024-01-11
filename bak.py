@@ -5,9 +5,13 @@ ann_file_train = "/ai/mnt/code/mmaction2/tools/data/AmTICIS/train.txt"
 ann_file_val = "/ai/mnt/code/mmaction2/tools/data/AmTICIS/val.txt"
 ann_file_test = "/ai/mnt/code/mmaction2/tools/data/AmTICIS/val.txt"
 
-data_preprocessor = dict(
-    mean=[160, 160, 160],
-    std=[44, 44, 44],
+model = dict(
+    data_preprocessor=dict(
+        mean=[160, 160, 160],
+        std=[44, 44, 44],
+    ),
+    backbone=dict(pretrained=None),
+    cls_head=dict(num_classes=4),
 )
 
 default_hooks = dict(checkpoint=dict(interval=5, save_best="auto", max_keep_ckpts=3))
