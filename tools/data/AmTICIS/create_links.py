@@ -23,7 +23,7 @@ def get_label(file_dir, binary=False):
     return label
 
 
-binary = True
+binary = False
 dataroot = "/ai/mnt/data/erase_renamed_pair_relabel_RS/"
 trains = glob.glob(dataroot + "/train/*fps1.mp4")
 vals = glob.glob(dataroot + "/val/*fps1.mp4")

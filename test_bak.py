@@ -2,7 +2,7 @@
 import argparse
 import os
 import os.path as osp
-
+import glob
 from mmengine.config import Config, DictAction
 from mmengine.runner import Runner
 
@@ -11,8 +11,15 @@ from mmaction.registry import RUNNERS
 
 def parse_args():
     parser = argparse.ArgumentParser(description="MMAction2 test (and eval) a model")
-    parser.add_argument("config", help="test config file path")
-    parser.add_argument("checkpoint", help="checkpoint file")
+    parser.add_argument(
+        "--config",
+        default="/ai/mnt/code/mmaction2/work_dirs/c3d_sports1m-pretrained_8xb30-16x1x1-200e_AmTICIS-rgb/c3d_sports1m-pretrained_8xb30-16x1x1-200e_AmTICIS-rgb.py",
+        type=str,
+        help="test config file path",
+    )
+    parser.add_argument(
+        "--checkpoint", default="NOT", type=str, help="checkpoint file dir"
+    )
     parser.add_argument(
         "--work-dir",
         help="the directory to save the file containing evaluation metrics",
@@ -95,6 +102,13 @@ def merge_args(cfg, args):
 
 def main():
     args = parse_args()
+    if args.checkpoint == "NOT":
+        try_checkpoint = glob.glob(
+            os.path.join(os.path.dirname(args.config), "best_acc_top1_*.pth")
+        )[0]
+        if os.path.exists(try_checkpoint):
+            args.checkpoint = try_checkpoint
+            args.dump = try_checkpoint.replace(".pth", "_result.pkl")
 
     # load config
     cfg = Config.fromfile(args.config)

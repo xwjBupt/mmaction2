@@ -13,7 +13,7 @@ def parse_args():
     parser = argparse.ArgumentParser(description="Train a action recognizer")
     parser.add_argument(
         "--config",
-        default="/ai/mnt/code/mmaction2/configs/recognition/mvit/mvit-base-p244_32x3x1_AmTICIS-rgb.py",
+        default="/ai/mnt/code/mmaction2/configs/recognition/tin/tin_kinetics400-pretrained-tsm-r50_1x1x8-50e_AmTICIS-rgb.py",
         help="train config file path",
     )
     parser.add_argument("--work-dir", help="the dir to save logs and models")
