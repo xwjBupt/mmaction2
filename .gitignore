@@ -157,5 +157,4 @@ mmaction/.mim
 *.pyth
 *.json
 *.jpg
-./work_dirs/*
-./work_dirs_update_samples/*
+work_dirs_update_samples/
