@@ -2,10 +2,7 @@ _base_ = ["../../_base_/models/swin_tiny.py", "../../_base_/default_runtime.py"]
 
 model = dict(
     backbone=dict(
-        arch="base",
-        drop_path_rate=0.3,
-        pretrained=None,
-        pretrained2d=None,  # noqa: E251
+        arch="base", drop_path_rate=0.3, pretrained2d=None, pretrained=None
     ),  # noqa: E251  # noqa: E501
     data_preprocessor=dict(
         type="ActionDataPreprocessor",

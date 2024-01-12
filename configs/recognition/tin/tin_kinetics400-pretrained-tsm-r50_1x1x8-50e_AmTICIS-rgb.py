@@ -12,7 +12,6 @@ model = dict(
         mean=[160, 160, 160],
         std=[44, 44, 44],
     ),
-    backbone=dict(pretrained=None),
     cls_head=dict(num_classes=4, is_shift=True),
 )
 
@@ -65,7 +64,7 @@ test_pipeline = [
 ]
 
 train_dataloader = dict(
-    batch_size=8,
+    batch_size=16,
     num_workers=4,
     persistent_workers=True,
     sampler=dict(type="DefaultSampler", shuffle=True),

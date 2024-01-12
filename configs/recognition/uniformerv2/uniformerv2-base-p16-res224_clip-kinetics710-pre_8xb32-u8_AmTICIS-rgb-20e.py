@@ -25,11 +25,6 @@ model = dict(
         drop_path_rate=0.0,
         mlp_dropout=[0.5, 0.5, 0.5, 0.5],
         clip_pretrained=False,
-        init_cfg=dict(
-            type="Pretrained",
-            checkpoint="/ai/mnt/code/mmaction2/configs/recognition/uniformerv2/uniformerv2-base-p16-res224_clip-pre_u8_kinetics710-rgb_20221219-77d34f81.pth",  # noqa: E251  # noqa: E501
-            prefix="backbone.",
-        ),
     ),
     cls_head=dict(
         type="UniFormerHead",
@@ -38,11 +33,6 @@ model = dict(
         in_channels=768,
         average_clips="prob",
         channel_map="configs/recognition/uniformerv2/k710_channel_map/map_k400.json",  # noqa: E251
-        init_cfg=dict(
-            type="Pretrained",
-            checkpoint="/ai/mnt/code/mmaction2/configs/recognition/uniformerv2/uniformerv2-base-p16-res224_clip-pre_u8_kinetics710-rgb_20221219-77d34f81.pth",  # noqa: E251  # noqa: E501
-            prefix="cls_head.",
-        ),
     ),
     data_preprocessor=dict(
         type="ActionDataPreprocessor",
