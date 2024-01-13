@@ -13,7 +13,7 @@ def parse_args():
     parser = argparse.ArgumentParser(description="MMAction2 test (and eval) a model")
     parser.add_argument(
         "--config",
-        default="/ai/mnt/code/mmaction2/work_dirs/c3d_sports1m-pretrained_8xb30-16x1x1-200e_AmTICIS-rgb/c3d_sports1m-pretrained_8xb30-16x1x1-200e_AmTICIS-rgb.py",
+        default="/ai/mnt/code/mmaction2/work_dirs_update_samples/swin-base-p244-w877_in1k-pre_8xb8-amp-32x2x1-60e_AmTICIS-rgb/swin-base-p244-w877_in1k-pre_8xb8-amp-32x2x1-60e_AmTICIS-rgb.py",
         type=str,
         help="test config file path",
     )
@@ -108,7 +108,8 @@ def main():
         )[0]
         if os.path.exists(try_checkpoint):
             args.checkpoint = try_checkpoint
-            args.dump = try_checkpoint.replace(".pth", "_result.pkl")
+            basename = "#" + os.path.basename(args.config).replace(".py", "_result.pkl")
+            args.dump = try_checkpoint.replace(".pth", basename)
 
     # load config
     cfg = Config.fromfile(args.config)
