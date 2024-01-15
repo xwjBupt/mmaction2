@@ -9,24 +9,22 @@ from mmaction.registry import MODELS
 try:
     from mmengine.analysis import get_model_complexity_info
 except ImportError:
-    raise ImportError('Please upgrade mmcv to >0.6.2')
+    raise ImportError("Please upgrade mmcv to >0.6.2")
 
 
 def parse_args():
-    parser = argparse.ArgumentParser(description='Get model flops and params')
-    parser.add_argument('config', help='config file path')
+    parser = argparse.ArgumentParser(description="Get model flops and params")
     parser.add_argument(
-        '--shape',
-        type=int,
-        nargs='+',
-        default=[224, 224],
-        help='input image size')
+        "--config",
+        default="/ai/mnt/code/mmaction2/configs/recognition/tin/tin_kinetics400-pretrained-tsm-r50_1x1x8-50e_AmTICIS-rgb.py",
+        help="config file path",
+    )
+    parser.add_argument("--shape", default=[4, 3, 224, 224], help="input image size")
     args = parser.parse_args()
     return args
 
 
 def main():
-
     args = parse_args()
 
     if len(args.shape) == 1:
@@ -41,32 +39,38 @@ def main():
         # n, m, t, v, c = args.shape for GCN-based recognizer
         input_shape = tuple(args.shape)
     else:
-        raise ValueError('invalid input shape')
+        raise ValueError("invalid input shape")
 
     cfg = Config.fromfile(args.config)
-    init_default_scope(cfg.get('default_scope', 'mmaction'))
+    init_default_scope(cfg.get("default_scope", "mmaction"))
     model = MODELS.build(cfg.model)
     model.eval()
 
-    if hasattr(model, 'extract_feat'):
+    if hasattr(model, "extract_feat"):
         model.forward = model.extract_feat
     else:
         raise NotImplementedError(
-            'FLOPs counter is currently not currently supported with {}'.
-            format(model.__class__.__name__))
+            "FLOPs counter is currently not currently supported with {}".format(
+                model.__class__.__name__
+            )
+        )
 
     analysis_results = get_model_complexity_info(model, input_shape)
-    flops = analysis_results['flops_str']
-    params = analysis_results['params_str']
-    table = analysis_results['out_table']
+    flops = analysis_results["flops_str"]
+    params = analysis_results["params_str"]
+    table = analysis_results["out_table"]
     print(table)
-    split_line = '=' * 30
-    print(f'\n{split_line}\nInput shape: {input_shape}\n'
-          f'Flops: {flops}\nParams: {params}\n{split_line}')
-    print('!!!Please be cautious if you use the results in papers. '
-          'You may need to check if all ops are supported and verify that the '
-          'flops computation is correct.')
+    split_line = "=" * 30
+    print(
+        f"\n{split_line}\nInput shape: {input_shape}\n"
+        f"Flops: {flops}\nParams: {params}\n{split_line}"
+    )
+    print(
+        "!!!Please be cautious if you use the results in papers. "
+        "You may need to check if all ops are supported and verify that the "
+        "flops computation is correct."
+    )
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
