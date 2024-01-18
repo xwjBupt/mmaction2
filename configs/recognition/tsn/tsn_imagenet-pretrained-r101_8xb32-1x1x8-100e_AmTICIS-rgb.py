@@ -64,7 +64,13 @@ val_dataloader = dict(
         test_mode=True,
     ),
 )
-
+test_dataloader = dict(
+    dataset=dict(
+        type="VideoDataset",
+        ann_file="/ai/mnt/code/mmaction2/tools/data/AmTICIS/val.txt",
+        data_prefix=dict(video="/ai/mnt/data/erase_renamed_pair_relabel_RS/val"),
+    ),
+)
 model = dict(
     backbone=dict(
         pretrained=None,
