@@ -1,0 +1,24 @@
+#!/bin/bash
+python /ai/mnt/code/mmaction2/test_bak.py --config /ai/mnt/code/mmaction2/work_dirs_update_samples/c3d_sports1m-pretrained_8xb30-16x1x1-200e_AmTICIS_C-rgb/c3d_sports1m-pretrained_8xb30-16x1x1-200e_AmTICIS_C-rgb.py
+python /ai/mnt/code/mmaction2/test_bak.py --config /ai/mnt/code/mmaction2/work_dirs_update_samples/c3d_sports1m-pretrained_8xb30-16x1x1-200e_AmTICIS_S-rgb/c3d_sports1m-pretrained_8xb30-16x1x1-200e_AmTICIS_S-rgb.py
+python /ai/mnt/code/mmaction2/test_bak.py --config /ai/mnt/code/mmaction2/work_dirs_update_samples/i3d_imagenet-pretrained-r50-heavy_8xb8-32x2x1-100e_AmTICIS_C-rgb/i3d_imagenet-pretrained-r50-heavy_8xb8-32x2x1-100e_AmTICIS_C-rgb.py
+python /ai/mnt/code/mmaction2/test_bak.py --config /ai/mnt/code/mmaction2/work_dirs_update_samples/i3d_imagenet-pretrained-r50-heavy_8xb8-32x2x1-100e_AmTICIS_S-rgb/i3d_imagenet-pretrained-r50-heavy_8xb8-32x2x1-100e_AmTICIS_S-rgb.py
+python /ai/mnt/code/mmaction2/test_bak.py --config /ai/mnt/code/mmaction2/work_dirs_update_samples/r2plus1d_r34_8xb8-32x2x1-900e_AmTICIS_C-rgb/r2plus1d_r34_8xb8-32x2x1-900e_AmTICIS_C-rgb.py
+python /ai/mnt/code/mmaction2/test_bak.py --config /ai/mnt/code/mmaction2/work_dirs_update_samples/r2plus1d_r34_8xb8-32x2x1-900e_AmTICIS_S-rgb/r2plus1d_r34_8xb8-32x2x1-900e_AmTICIS_S-rgb.py
+python /ai/mnt/code/mmaction2/test_bak.py --config /ai/mnt/code/mmaction2/work_dirs_update_samples/slowfast_r101_8xb8-8x8x1-1280e_AmTICIS_C-rgb/slowfast_r101_8xb8-8x8x1-1280e_AmTICIS_C-rgb.py
+python /ai/mnt/code/mmaction2/test_bak.py --config /ai/mnt/code/mmaction2/work_dirs_update_samples/slowfast_r101_8xb8-8x8x1-1280e_AmTICIS_S-rgb/slowfast_r101_8xb8-8x8x1-1280e_AmTICIS_S-rgb.py
+python /ai/mnt/code/mmaction2/test_bak.py --config /ai/mnt/code/mmaction2/work_dirs_update_samples/swin-base-p244-w877_in1k-pre_8xb8-amp-32x2x1-300e_AmTICIS_C-rgb/swin-base-p244-w877_in1k-pre_8xb8-amp-32x2x1-300e_AmTICIS_C-rgb.py
+python /ai/mnt/code/mmaction2/test_bak.py --config /ai/mnt/code/mmaction2/work_dirs_update_samples/swin-base-p244-w877_in1k-pre_8xb8-amp-32x2x1-300e_AmTICIS_S-rgb/swin-base-p244-w877_in1k-pre_8xb8-amp-32x2x1-300e_AmTICIS_S-rgb.py
+python /ai/mnt/code/mmaction2/test_bak.py --config /ai/mnt/code/mmaction2/work_dirs_update_samples/tanet_imagenet-pretrained-r50_8xb8-dense-1x1x8-500e_AmTICIS_C-rgb/tanet_imagenet-pretrained-r50_8xb8-dense-1x1x8-500e_AmTICIS_C-rgb.py
+python /ai/mnt/code/mmaction2/test_bak.py --config /ai/mnt/code/mmaction2/work_dirs_update_samples/tanet_imagenet-pretrained-r50_8xb8-dense-1x1x8-500e_AmTICIS_S-rgb/tanet_imagenet-pretrained-r50_8xb8-dense-1x1x8-500e_AmTICIS_S-rgb.py
+python /ai/mnt/code/mmaction2/test_bak.py --config /ai/mnt/code/mmaction2/work_dirs_update_samples/timesformer_divST_8xb8-8x32x1-60e_AmTICIS_C-rgb/timesformer_divST_8xb8-8x32x1-60e_AmTICIS_C-rgb.py
+python /ai/mnt/code/mmaction2/test_bak.py --config /ai/mnt/code/mmaction2/work_dirs_update_samples/timesformer_divST_8xb8-8x32x1-60e_AmTICIS_S-rgb/timesformer_divST_8xb8-8x32x1-60e_AmTICIS_S-rgb.py
+python /ai/mnt/code/mmaction2/test_bak.py --config /ai/mnt/code/mmaction2/work_dirs_update_samples/tin_kinetics400-pretrained-tsm-r50_1x1x8-250e_AmTICIS_C-rgb/tin_kinetics400-pretrained-tsm-r50_1x1x8-250e_AmTICIS_C-rgb.py
+python /ai/mnt/code/mmaction2/test_bak.py --config /ai/mnt/code/mmaction2/work_dirs_update_samples/tin_kinetics400-pretrained-tsm-r50_1x1x8-250e_AmTICIS_S-rgb/tin_kinetics400-pretrained-tsm-r50_1x1x8-250e_AmTICIS_S-rgb.py
+python /ai/mnt/code/mmaction2/test_bak.py --config /ai/mnt/code/mmaction2/work_dirs_update_samples/tsm_imagenet-pretrained-r50-nl-dot-product_8xb16-1x1x8-250e_AmTICIS_C-rgb/tsm_imagenet-pretrained-r50-nl-dot-product_8xb16-1x1x8-250e_AmTICIS_C-rgb.py
+python /ai/mnt/code/mmaction2/test_bak.py --config /ai/mnt/code/mmaction2/work_dirs_update_samples/tsm_imagenet-pretrained-r50-nl-dot-product_8xb16-1x1x8-250e_AmTICIS_S-rgb/tsm_imagenet-pretrained-r50-nl-dot-product_8xb16-1x1x8-250e_AmTICIS_S-rgb.py
+python /ai/mnt/code/mmaction2/test_bak.py --config /ai/mnt/code/mmaction2/work_dirs_update_samples/tsn_imagenet-pretrained-r101_8xb32-1x1x8-100e_AmTICIS_C-rgb/tsn_imagenet-pretrained-r101_8xb32-1x1x8-100e_AmTICIS_C-rgb.py
+python /ai/mnt/code/mmaction2/test_bak.py --config /ai/mnt/code/mmaction2/work_dirs_update_samples/tsn_imagenet-pretrained-r101_8xb32-1x1x8-100e_AmTICIS_S-rgb/tsn_imagenet-pretrained-r101_8xb32-1x1x8-100e_AmTICIS_S-rgb.py
+python /ai/mnt/code/mmaction2/test_bak.py --config /ai/mnt/code/mmaction2/work_dirs_update_samples/uniformerv2-base-p16-res224_clip-kinetics710-pre_8xb32-u8_AmTICIS_C-rgb-100e/uniformerv2-base-p16-res224_clip-kinetics710-pre_8xb32-u8_AmTICIS_C-rgb-100e.py
+python /ai/mnt/code/mmaction2/test_bak.py --config /ai/mnt/code/mmaction2/work_dirs_update_samples/uniformerv2-base-p16-res224_clip-kinetics710-pre_8xb32-u8_AmTICIS_S-rgb-100e/uniformerv2-base-p16-res224_clip-kinetics710-pre_8xb32-u8_AmTICIS_S-rgb-100e.py
+
