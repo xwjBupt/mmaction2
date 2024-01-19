@@ -5,7 +5,9 @@ default_hooks = dict(
     timer=dict(type="IterTimerHook"),
     logger=dict(type="LoggerHook", interval=100, ignore_last=False),
     param_scheduler=dict(type="ParamSchedulerHook"),
-    checkpoint=dict(type="CheckpointHook", interval=1, save_best="auto"),
+    checkpoint=dict(
+        type="CheckpointHook", interval=1, max_keep_ckpts=5, save_best="auto"
+    ),
     sampler_seed=dict(type="DistSamplerSeedHook"),
     sync_buffers=dict(type="SyncBuffersHook"),
 )

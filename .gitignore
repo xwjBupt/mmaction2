@@ -158,3 +158,6 @@ mmaction/.mim
 *.json
 *.jpg
 work_dirs_update_samples/
+work_dirs_update_samples_try2/
+work_dirs_update_samples_try3/
+work_dirs*/

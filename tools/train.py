@@ -12,7 +12,7 @@ from mmaction.registry import RUNNERS
 def parse_args():
     parser = argparse.ArgumentParser(description="Train a action recognizer")
     parser.add_argument("config", help="train config file path")
-    parser.add_argument("--work-dir", help="the dir to save logs and models")
+    parser.add_argument("--work_dir", help="the dir to save logs and models")
     parser.add_argument(
         "--resume",
         nargs="?",
@@ -84,11 +84,15 @@ def merge_args(cfg, args):
     # work_dir is determined in this priority: CLI > segment in file > filename
     if args.work_dir is not None:
         # update configs according to CLI args if args.work_dir is not None
-        cfg.work_dir = args.work_dir
+        cfg.work_dir = osp.join(
+            args.work_dir,
+            osp.splitext(osp.basename(args.config))[0],
+        )
     elif cfg.get("work_dir", None) is None:
         # use config filename as default work_dir if cfg.work_dir is None
         cfg.work_dir = osp.join(
-            "./work_dirs_update_samples", osp.splitext(osp.basename(args.config))[0]
+            "./work_dirs_update_samples",
+            osp.splitext(osp.basename(args.config))[0],
         )
 
     # enable automatic-mixed-precision training
