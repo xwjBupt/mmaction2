@@ -13,7 +13,7 @@ def parse_args():
     parser = argparse.ArgumentParser(description="MMAction2 test (and eval) a model")
     parser.add_argument(
         "--config",
-        default="/ai/mnt/code/mmaction2/work_dirs_update_samples/swin-base-p244-w877_in1k-pre_8xb8-amp-32x2x1-60e_AmTICIS-rgb/swin-base-p244-w877_in1k-pre_8xb8-amp-32x2x1-60e_AmTICIS-rgb.py",
+        default="/ai/mnt/code/mmaction2/work_dirs_update_samples_try3/slowfast_r101_8xb8-8x8x1-1280e_AmTICIS-rgb/slowfast_r101_8xb8-8x8x1-1280e_AmTICIS-rgb.py",
         type=str,
         help="test config file path",
     )
