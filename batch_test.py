@@ -15,20 +15,22 @@ def write_to_csv(filename, content):
         writer.writerow(content)
 
 
-# configs = glob.glob(
-#     "/ai/mnt/code/mmaction2/work_dirs_update_samples_try2/*/*.pkl"
-# ) + glob.glob("/ai/mnt/code/mmaction2/work_dirs_update_samples_try3/*/*.pkl")
-# for config in tqdm(configs):
-#     print(">>>> START ON %s" % config)
-#     os.system("python /ai/mnt/code/mmaction2/test_bak.py --config %s" % config)
-#     print(">>>> DONE ON %s\n\n" % config)
+configs = (
+    glob.glob("/ai/mnt/code/mmaction2/work_dirs_update_samples_binary_try2/*/*.py")
+    + glob.glob("/ai/mnt/code/mmaction2/work_dirs_update_samples_binary_try1/*/*.py")
+    + glob.glob("/ai/mnt/code/mmaction2/work_dirs_update_samples_binary_try3/*/*.py")
+)
+for config in tqdm(configs):
+    print(">>>> START ON %s" % config)
+    os.system("python /ai/mnt/code/mmaction2/test_bak.py --config %s" % config)
+    print(">>>> DONE ON %s\n\n" % config)
 
 configs = (
-    glob.glob("/ai/mnt/code/mmaction2/work_dirs_update_samples_try1/*/*.pkl")
-    + glob.glob("/ai/mnt/code/mmaction2/work_dirs_update_samples_try2/*/*.pkl")
-    + glob.glob("/ai/mnt/code/mmaction2/work_dirs_update_samples_try3/*/*.pkl")
+    glob.glob("/ai/mnt/code/mmaction2/work_dirs_update_samples_binary_try1/*/*.pkl")
+    + glob.glob("/ai/mnt/code/mmaction2/work_dirs_update_samples_binary_try2/*/*.pkl")
+    + glob.glob("/ai/mnt/code/mmaction2/work_dirs_update_samples_binary_try3/*/*.pkl")
 )
-savedir = "/ai/mnt/code/mmaction2/work_dirs_update_samples_trys_pkls"
+savedir = "/ai/mnt/code/mmaction2/work_dirs_update_samples_binary_trys_pkls"
 
 os.makedirs(savedir, exist_ok=True)
 for config in tqdm(configs):
