@@ -67,7 +67,7 @@ val_dataloader = dict(
 test_dataloader = dict(
     dataset=dict(
         type="VideoDataset",
-        ann_file="/ai/mnt/code/mmaction2/tools/data/AmTICIS/val_S.txt",
+        ann_file="/ai/mnt/code/mmaction2/tools/data/AmTICIS/val_S_binary.txt",
         data_prefix=dict(video="/ai/mnt/data/erase_renamed_pair_relabel_RS/val"),
     ),
 )
@@ -76,7 +76,7 @@ model = dict(
         pretrained=None,
         depth=101,
     ),
-    cls_head=dict(num_classes=4),
+    cls_head=dict(num_classes=2),
     data_preprocessor=dict(
         mean=[160, 160, 160],
         std=[44, 44, 44],

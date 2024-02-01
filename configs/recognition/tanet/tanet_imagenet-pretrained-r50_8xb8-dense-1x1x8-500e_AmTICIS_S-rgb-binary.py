@@ -10,7 +10,7 @@ model = dict(
         std=[44, 44, 44],
     ),
     backbone=dict(pretrained=None),
-    cls_head=dict(num_classes=4),
+    cls_head=dict(num_classes=2),
 )
 # dataset settings
 dataset_type = "VideoDataset"

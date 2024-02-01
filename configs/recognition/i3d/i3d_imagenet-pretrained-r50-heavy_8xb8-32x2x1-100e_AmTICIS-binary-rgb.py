@@ -7,9 +7,9 @@ _base_ = [
 dataset_type = "VideoDataset"
 data_root_train = "/ai/mnt/data/erase_renamed_pair_relabel_RS/train"
 data_root_val = "/ai/mnt/data/erase_renamed_pair_relabel_RS/val"
-ann_file_train = "/ai/mnt/code/mmaction2/tools/data/AmTICIS/train_binary.txt"
-ann_file_val = "/ai/mnt/code/mmaction2/tools/data/AmTICIS/val_binary.txt"
-ann_file_test = "/ai/mnt/code/mmaction2/tools/data/AmTICIS/val_binary.txt"
+ann_file_train = "/ai/mnt/code/mmaction2/tools/data/AmTICIS/train_S_binary.txt"
+ann_file_val = "/ai/mnt/code/mmaction2/tools/data/AmTICIS/val_S_binary.txt"
+ann_file_test = "/ai/mnt/code/mmaction2/tools/data/AmTICIS/val_S_binary.txt"
 
 # model settings
 model = dict(

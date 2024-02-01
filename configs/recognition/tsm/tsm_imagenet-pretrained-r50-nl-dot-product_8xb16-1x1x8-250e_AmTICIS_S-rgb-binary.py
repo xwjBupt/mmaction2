@@ -139,6 +139,6 @@ model = dict(
             mode="dot_product",
         ),
     ),
-    cls_head=dict(num_classes=4),
+    cls_head=dict(num_classes=2),
 )
 load_from = "/ai/mnt/code/mmaction2/configs/recognition/tsm/tsm_imagenet-pretrained-r50-nl-dot-product_8xb16-1x1x8-50e_kinetics400-rgb_20220831-108bfde5.pth"
