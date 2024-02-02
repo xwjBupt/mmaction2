@@ -63,6 +63,6 @@
 
 
 
-bash /ai/mnt/code/mmaction2/tools/dist_train.sh /ai/mnt/code/mmaction2/configs/recognition/tanet/tanet_imagenet-pretrained-r50_8xb8-dense-1x1x8-500e_AmTICIS_S-rgb-binary.py 2 --seed 111 --work_dir /ai/mnt/code/mmaction2/WORK_DIRS/work_dirs_update_samples_sag_binary_try1/
-bash /ai/mnt/code/mmaction2/tools/dist_train.sh /ai/mnt/code/mmaction2/configs/recognition/tanet/tanet_imagenet-pretrained-r50_8xb8-dense-1x1x8-500e_AmTICIS_S-rgb-binary.py 2 --seed 222 --work_dir /ai/mnt/code/mmaction2/WORK_DIRS/work_dirs_update_samples_sag_binary_try2/
-bash /ai/mnt/code/mmaction2/tools/dist_train.sh /ai/mnt/code/mmaction2/configs/recognition/tanet/tanet_imagenet-pretrained-r50_8xb8-dense-1x1x8-500e_AmTICIS_S-rgb-binary.py 2 --seed 333 --work_dir /ai/mnt/code/mmaction2/WORK_DIRS/work_dirs_update_samples_sag_binary_try3/
+bash /ai/mnt/code/mmaction2/tools/dist_train.sh /ai/mnt/code/mmaction2/configs/recognition/tanet/tanet_imagenet-pretrained-r50_8xb8-dense-1x1x8-500e_AmTICIS_C-rgb-binary.py 2 --seed 111 --work_dir /ai/mnt/code/mmaction2/WORK_DIRS/work_dirs_update_samples_cor_binary_try1/
+bash /ai/mnt/code/mmaction2/tools/dist_train.sh /ai/mnt/code/mmaction2/configs/recognition/tanet/tanet_imagenet-pretrained-r50_8xb8-dense-1x1x8-500e_AmTICIS_C-rgb-binary.py 2 --seed 222 --work_dir /ai/mnt/code/mmaction2/WORK_DIRS/work_dirs_update_samples_cor_binary_try2/
+bash /ai/mnt/code/mmaction2/tools/dist_train.sh /ai/mnt/code/mmaction2/configs/recognition/tanet/tanet_imagenet-pretrained-r50_8xb8-dense-1x1x8-500e_AmTICIS_C-rgb-binary.py 2 --seed 333 --work_dir /ai/mnt/code/mmaction2/WORK_DIRS/work_dirs_update_samples_cor_binary_try3/

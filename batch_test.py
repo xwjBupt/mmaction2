@@ -16,7 +16,7 @@ def write_to_csv(filename, content):
 
 
 configs = glob.glob(
-    "/ai/mnt/code/mmaction2/WORK_DIRS/work_dirs_update_samples_sag_binary_try*/*/*.py"
+    "/ai/mnt/code/mmaction2/WORK_DIRS/work_dirs_update_samples_cor_binary_try*/*/*.py"
 )
 for config in tqdm(configs):
     print(">>>> START ON %s" % config)
@@ -24,10 +24,10 @@ for config in tqdm(configs):
     print(">>>> DONE ON %s\n\n" % config)
 
 configs = glob.glob(
-    "/ai/mnt/code/mmaction2/WORK_DIRS/work_dirs_update_samples_sag_binary_try*/*/*.pkl"
+    "/ai/mnt/code/mmaction2/WORK_DIRS/work_dirs_update_samples_cor_binary_try*/*/*.pkl"
 )
 savedir = (
-    "/ai/mnt/code/mmaction2/WORK_DIRS/work_dirs_update_samples_sag_binary_trys_pkls"
+    "/ai/mnt/code/mmaction2/WORK_DIRS/work_dirs_update_samples_cor_binary_trys_pkls"
 )
 
 os.makedirs(savedir, exist_ok=True)
